@@ -1,12 +1,12 @@
-@import 'configurations/all';
-@import '_common.scss';
+@import 'settings/all';
+@import 'common';
 @import 'header/all';
 @import 'footer/all';
-@import '_slider.scss';
-@import '_tabs.scss';
-@import '_promo.scss';
-@import '_feed-cards.scss';
-@import '_flip-cards.scss';
-@import '_information.scss';
-@import '_form.scss';
+@import 'slider';
+@import 'tabs';
+@import 'promo';
+@import 'feed-cards';
+@import 'flip-cards';
+@import 'information';
+@import 'form';
 

@@ -1,8 +1,8 @@
 const navigation = document.querySelector('.js-header');
 const menu = document.querySelector('.js-navigation-menu');
 const burgerBtn = document.querySelector('.js-burger-button');
-const input = document.querySelector('.header-search__input');
-const footerBlocks = document.querySelectorAll('.footer__information-block');
+const input = document.querySelector('.js-header-search');
+const footerBlocks = document.querySelectorAll('.js-footer-information');
 
 input.addEventListener('focus', () => {
     navigation.classList.add('is-searching');

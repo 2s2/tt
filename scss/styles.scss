@@ -1,7 +1,7 @@
-@import '_variables.scss';
+@import 'configurations/all';
 @import '_common.scss';
-@import '_mixins.scss';
-@import 'header/_all.scss';
+@import 'header/all';
+@import 'footer/all';
 @import '_slider.scss';
 @import '_tabs.scss';
 @import '_promo.scss';
@@ -9,5 +9,4 @@
 @import '_flip-cards.scss';
 @import '_information.scss';
 @import '_form.scss';
-@import '_footer.scss';
 

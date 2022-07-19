@@ -1,9 +1,7 @@
 ﻿.navigation {
-    &__menu {
-      order: 2;
-    }
+    order: 2;
   
-    &__menu-list {
+    &__list {
       width: 100%;
       background: $color-white;
       position: absolute;
@@ -17,22 +15,22 @@
         right: 0;
   
         .navigation {
-          &__menu-link {
+          &__link {
             opacity: 1;
           }
         }
       }
     }
   
-    &__menu-item {
+    &__item {
       margin: 0 2.4rem;
     }
   
-    &__menu-item + &__menu-item {
+    &__item + &__item {
       border-top: 0.1rem solid $brand-third-color;
     }
   
-    &__menu-link {
+    &__link {
       display: block;
       padding: 1.6rem 4rem 1.6rem 0;
       font: 700 1.8rem / 1.2 $font-family-base;
@@ -58,7 +56,7 @@
       }
     }
   
-    &__menu-burger-button {
+    &__burger-button {
       cursor: pointer;
       position: relative;
       background: none;
@@ -88,7 +86,7 @@
       }
   
       &.is-burger {
-        .navigation__menu-burger-span {
+        .navigation__burger-span {
           opacity: 0;
         }
   
@@ -102,7 +100,7 @@
       }
     }
   
-    &__menu-burger-span {
+    &__burger-span {
       width: 3.2rem;
       height: 0.2rem;
       position: absolute;
@@ -114,11 +112,9 @@
     }
   
     @include respond(desktop) {
-      &__menu {
-        order: 0;
-      }
+      order: 0;
   
-      &__menu-list {
+      &__list {
         display: flex;
         margin: 0 auto;
         position: static;
@@ -126,15 +122,15 @@
         width: auto;
       }
   
-      &__menu-item {
+      &__item {
         margin: 0 1.6rem;
       }
   
-      &__menu-item + &__menu-item {
+      &__item + &__item {
         border-top: none;
       }
   
-      &__menu-link {
+      &__link {
         font: 700 1.2rem / 1.2 $font-family-base;
         padding: 0;
         opacity: 1;
@@ -163,7 +159,7 @@
         }
       }
   
-      &__menu-burger-button {
+      &__burger-button {
         display: none;
       }
     }

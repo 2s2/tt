@@ -1,0 +1,373 @@
+.navigation {
+  padding: 1.6rem 0;
+  box-shadow: $box-shadow;
+
+  &__container {
+    @include container();
+    display: flex;
+    align-items: center;
+  }
+
+  &__menu {
+    order: 2;
+  }
+
+  &__menu-list {
+    width: 100%;
+    background: $color-white;
+    position: absolute;
+    height: calc(100vh - 6.8rem);
+    right: -100%;
+    top: 6.8rem;
+    transition: all 0.4s ease;
+    z-index: 2;
+
+    &.is-burger {
+      right: 0;
+
+      .navigation {
+        &__menu-link {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__logo-img {
+    width: 18rem;
+    font-size: 0;
+  }
+
+  &__menu-item {
+    margin: 0 2.4rem;
+  }
+
+  &__menu-item + &__menu-item {
+    border-top: 0.1rem solid $brand-third-color;
+  }
+
+  &__menu-link {
+    display: block;
+    padding: 1.6rem 4rem 1.6rem 0;
+    font: 700 1.8rem / 1.2 $font-family-base;
+    position: relative;
+    color: $brand-primary-color;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: all 0.4s ease;
+
+    &::after {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform:translateY(-50%);
+      content: '';
+      background: url("../images/arrow.svg") no-repeat;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    &:hover {
+      color: $brand-primary-color;
+    }
+  }
+
+  &__menu-burger-button {
+    cursor: pointer;
+    position: relative;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0 0 0 1.6rem;
+    width: 3.2rem;
+    height: 2.2rem;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 3.2rem;
+      height: 0.2rem;
+      left: 0;
+      background: $brand-third-color;
+      transition: all 0.3s ease;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    &.is-burger {
+      .navigation__menu-burger-span {
+        opacity: 0;
+      }
+
+      &::before {
+        transform: rotate(-45deg) translate(-0.7rem, 0.7rem);
+      }
+
+      &::after {
+        transform: rotate(45deg) translate(-0.7rem, -0.7rem);
+      }
+    }
+  }
+
+  &__menu-burger-span {
+    width: 3.2rem;
+    height: 0.2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    background: $brand-third-color;
+    transition: all 0.2s ease;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 auto;
+  }
+
+  &__info-link {
+    display: none;
+  }
+
+  &__info-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__info-search-input {
+    width: 3.6rem;
+    height: 3.6rem;
+    padding: 0.8rem 0.8rem 0.8rem 3.2rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+
+    &:focus {
+      width: 20rem;
+      border: 0.2rem solid $brand-third-color;
+      cursor: auto;
+
+      & ~ .navigation__info-search-button {
+        z-index: 1;
+      }
+
+      & ~ .navigation__info-search-button-close {
+        display: block;
+      }
+    }
+  }
+
+  &__info-search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    left: 0.8rem;
+    z-index: -1;
+  }
+
+  &__info-search-button-close {
+    display: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0;
+    position: relative;
+    width: 2.4rem;
+    height: 2.2rem;
+    margin: 0 0 0 0.8rem;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 2.2rem;
+      height: 0.2rem;
+      left: 0;
+      background: $brand-primary-color-02;
+      transition: all 0.3s ease;
+    }
+
+    &::before {
+      top: 0;
+      transform: rotate(-45deg) translate(-0.7rem, 0.7rem);
+    }
+
+    &::after {
+      bottom: 0;
+      transform: rotate(45deg) translate(-0.7rem, -0.7rem);
+    }
+  }
+
+  &.is-searching {
+    .navigation {
+      &__logo,
+      &__info-link {
+        display: none;
+      }
+    }
+  }
+
+  &__lang-switcher {
+    position: relative;
+  }
+
+  &__lang-switcher-button {
+    margin: 0 0 0 0.4rem;
+    padding: 0.8rem 0.4rem;
+    width: 3rem;
+    border: none;
+    background: transparent;
+    color: $brand-third-color;
+    font: 400 1.8rem / 1 $font-family-base;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  &__lang-switcher-list {
+    min-width: 13rem;
+    background: $color-white;
+    text-align: center;
+    box-shadow: $box-shadow;
+    padding: 0.8rem 1.6rem;
+    cursor: pointer;
+    position: absolute;
+    right: -100vw;
+    top: 6.8rem;
+    z-index: 2;
+    transition: all 0.4s ease;
+
+    &--open {
+      right: 0;
+    }
+  }
+
+  &__lang-switcher-item + &__lang-switcher-item {
+    border-top: 0.1rem solid $brand-third-color;
+  }
+
+  &__lang-switcher-item-lang {
+    display: block;
+    padding: 1.2rem 0;
+    cursor: pointer;
+    font: 400 1.6rem / 1 $font-family-base;
+    color: $brand-primary-color;
+    transition: 0.4s;
+
+    &--current,
+    &:hover {
+      color: $brand-secondary-color;
+    }
+  }
+
+  @include respond(tablet) {
+    &__info-link {
+      display: none;
+      color: $brand-secondary-color;
+      font: 700 1.2rem / 1.2 $font-family-base;
+      text-transform: uppercase;
+
+      &:hover {
+        color: $brand-primary-color;
+      }
+    }
+
+    &.is-searching {
+      .navigation {
+        &__logo {
+          display: block;
+        }
+      }
+    }
+
+    &__lang-switcher-list {
+      transition: none;
+    }
+  }
+
+  @include respond(desktop) {
+    &.is-searching {
+      .navigation {
+        &__menu-list {
+          display: none;
+        }
+      }
+    }
+
+    &__container {
+      justify-content: space-between;
+    }
+
+    &__menu {
+      order: 0;
+    }
+
+    &__menu-list {
+      display: flex;
+      margin: 0 auto;
+      position: static;
+      height: auto;
+      width: auto;
+    }
+
+    &__menu-item {
+      margin: 0 1.6rem;
+    }
+
+    &__menu-item + &__menu-item {
+      border-top: none;
+    }
+
+    &__menu-link {
+      font: 700 1.2rem / 1.2 $font-family-base;
+      padding: 0;
+      opacity: 1;
+
+      &::after {
+        display: none;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2rem;
+        height: 0.4rem;
+        background: $brand-secondary-color;
+        transition: 0.3s;
+      }
+
+      &:hover,
+      &--active {
+        color: $brand-secondary-color;
+
+        &::before {
+          right: 0;
+        }
+      }
+    }
+
+    &__menu-burger-button {
+      display: none;
+    }
+
+    &__info {
+      margin: 0;
+    }
+
+    &__info-link {
+      display: inline-block;
+    }
+  }
+}

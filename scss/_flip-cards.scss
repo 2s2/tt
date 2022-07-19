@@ -1,0 +1,391 @@
+.flip-cards {
+  &__container {
+    @include container();
+    padding: 4rem 2.4rem;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-gap: 1.6rem;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  &__header {
+    max-width: 106rem;
+    margin: 0 auto 3.2rem;
+    text-align: center;
+  }
+
+  &__title {
+    margin: 0 0 1.2rem;
+    text-transform: capitalize;
+  }
+
+  &__description {
+    @include p-description();
+  }
+
+  &__card {
+    grid-column: auto/span 6;
+  }
+
+  &__card-inner {
+    padding: 2.4rem;
+  }
+
+  &__card-back {
+    padding: 2.4rem 0 0;
+  }
+
+  &__card-media {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 56.25% 0 0;
+  }
+
+  &__card-media-image {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__card-title {
+    @include ellipsis-multi(3);
+    position: relative;
+  }
+
+  &__card-description {
+    @include ellipsis-multi(5);
+    margin: 0 0 1.6rem;
+    color: $color-white;
+  }
+
+  &__card-link {
+    @include button($brand-primary-color, $brand-secondary-color);
+
+    &--large {
+      display: none;
+    }
+  }
+
+  &__card-header {
+    position: relative;
+    margin: 0 0 2.4rem;
+    padding: 0 0 1.6rem;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      background: $brand-primary-color;
+      height: 0.4rem;
+    }
+
+    &::before {
+      left: 0;
+      width: 18rem;
+    }
+
+    &::after {
+      left: 18.4rem;
+      width: 0.4rem;
+    }
+  }
+
+  &__card-info {
+    display: block;
+    padding: 0 0 0.8rem;
+    font: 700 1.8rem / 1 $font-family-base;
+    color: $brand-secondary-color;
+    text-transform: uppercase;
+  }
+
+  &--default {
+    .flip-cards {
+      &__card {
+        background: $brand-primary-color-02;
+
+        &:first-child {
+          .flip-cards {
+            &__card-link {
+              background: $brand-secondary-color;
+              border-color: $brand-secondary-color;
+              color: $color-white;
+
+              &::before, &::after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+      &__title {
+        @include h2-title();
+      }
+
+      &__card-title {
+        @include h3-title($color-white, none);
+      }
+    }
+  }
+
+  &--revert {
+    background: $brand-primary-color;
+
+    .flip-cards {
+      &__title {
+        @include h2-title($color-white);
+      }
+
+      &__description {
+        color: $color-white;
+      }
+
+      &__card {
+        background: $brand-third-color;
+      }
+
+      &__card-title {
+        @include h3-title($brand-primary-color, uppercase);
+        margin: 0;
+      }
+
+      &__card-description {
+        color: $color-dark;
+      }
+    }
+  }
+
+  @include respond(tablet) {
+    &__container {
+      padding: 6.4rem 0;
+    }
+
+    &__card {
+      grid-column: auto/span 3;
+    }
+  }
+
+  @include respond(desktop) {
+    &__container {
+      padding: 8.8rem 0;
+    }
+
+    &__header {
+      margin: 0 auto 4rem;
+    }
+
+    &__card {
+      grid-column: auto/span 2;
+      perspective: 100rem;
+
+      &:hover {
+        .flip-cards {
+          &__card-inner {
+            transform: rotateY(180deg);
+          }
+        }
+      }
+    }
+
+    &__card-inner {
+      padding: 0;
+      position: relative;
+      width: 100%;
+      height: 38rem;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    &__card-front, &__card-back {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2.4rem 3.2rem;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    &__card-back {
+      padding: 2.4rem;
+      transform: rotateY(180deg);
+    }
+
+    &__card-description {
+      color: $brand-primary-color;
+    }
+
+    &--default {
+      .flip-cards {
+        &__card {
+          background-color: transparent;
+
+          &:first-child {
+            grid-column: auto/span 6;
+            transform-style: initial;
+            background: $brand-primary-color-02;
+
+            &:hover {
+              .flip-cards {
+                &__card-inner {
+                  transform: none;
+                }
+              }
+            }
+
+            .flip-cards {
+              &__card-inner {
+                display: flex;
+              }
+
+              &__card-back {
+                background: $brand-primary-color-02;
+                text-align: left;
+              }
+
+              &__card-front, &__card-back {
+                position: static;
+                transform: none;
+              }
+
+              &__card-description {
+                color: $color-white;
+              }
+
+              &__card-link {
+                &:hover {
+                  background: $color-white;
+                  border-color: $color-white;
+                  color: $brand-secondary-color;
+                }
+              }
+            }
+          }
+        }
+
+        &__card-inner {
+          text-align: center;
+        }
+
+        &__card-front {
+          background-color: $brand-primary-color-02;
+        }
+
+        &__card-back {
+          background-color: $brand-third-color-02;
+        }
+      }
+    }
+
+    &--revert {
+      .flip-cards {
+        &__card {
+          background: transparent;
+          text-align: left;
+
+          &:nth-child(4n + 4) {
+            grid-column: auto/span 6;
+            background: $color-white;
+
+            &:hover {
+              .flip-cards {
+                &__card-inner {
+                  transform: none;
+                }
+              }
+            }
+
+            .flip-cards {
+              &__card-description {
+                @include ellipsis-multi(3);
+                font-size: 1.8rem;
+              }
+
+              &__card-inner {
+                height: auto;
+              }
+
+              &__card-front, &__card-back {
+                background: transparent;
+                position: static;
+              }
+
+              &__card-front {
+                padding: 4rem;
+                flex-direction: row;
+                align-items: center;
+              }
+
+              &__card-back {
+                display: none;
+              }
+
+              &__card-header {
+                width: 50%;
+                display: flex;
+                align-items: center;
+                margin: 0;
+                padding: 0 4rem 0 0;
+
+                &::before,
+                &::after {
+                  display: none;
+                }
+              }
+
+              &__card-content {
+                width: 50%;
+              }
+
+              &__card-title {
+                text-transform: none;
+                font: 700 3rem / 1.4 $font-family-base;
+              }
+
+              &__card-link {
+                &--large {
+                  display: inline-block;
+                  min-width: 24rem;
+                  text-align: center;
+                  border-color: $brand-secondary-color;
+                  color: $brand-secondary-color;
+                  padding: 1.6rem;
+
+                  &:hover {
+                    border-color: $brand-primary-color;
+                    color: $brand-primary-color;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &__card-front {
+          background-color: $brand-third-color;
+        }
+
+        &__card-back {
+          background-color: $brand-primary-color-03;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+

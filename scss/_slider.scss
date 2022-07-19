@@ -1,0 +1,113 @@
+.slider {
+  position: relative;
+
+  &__slide-wrapper {
+    background: $brand-third-color;
+  }
+
+  &__slide-media {
+    font-size: 0;
+  }
+
+  &__slide-content {
+    padding: 3.2rem 3.2rem 5.8rem;
+    text-align: center;
+    height: 31rem;
+  }
+
+  &__slide-subtitle {
+    margin: 0 0 0.8rem;
+    color: $brand-secondary-color;
+    font: 700 1.8rem / 1.5 $font-family-base;
+    text-transform: uppercase;
+  }
+
+  &__slide-title {
+    @include ellipsis-multi(3);
+    @include h2-title();
+    margin: 0 0 1.2rem;
+  }
+
+  &__slide-description {
+    @include ellipsis-multi(2);
+    font: 400 1.8rem / 1.5 $font-family-base;
+  }
+
+  .slick-dots {
+    margin: 0;
+    position: absolute;
+    z-index: 1;
+    display: flex !important;
+    bottom: 1.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    li {
+      margin: 0 0.8rem;
+      width: 1.6rem;
+      display: flex;
+      opacity: 0.5;
+      align-items: center;
+      transition: 0.3s;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &.slick-active {
+        opacity: 1;
+
+        button {
+          width: 1.2rem;
+          height: 1.2rem;
+        }
+      }
+    }
+
+    button {
+      cursor: pointer;
+      display: block;
+      padding: 0;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      font-size: 0;
+      border: none;
+      background: $brand-secondary-color;
+    }
+  }
+
+  @include respond(tablet) {
+    &__slide {
+      display: flex !important;
+      border-bottom: 0.5rem solid $color-yellow;
+    }
+
+    &__slide-media {
+      width: 50%;
+      order: 1;
+    }
+
+    &__slide-wrapper {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &__slide-content {
+      height: auto;
+      padding: 3.2rem;
+      max-width: 61.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+  }
+
+  @include respond(desktop) {
+    &__slide-description {
+      font: 400 2.2rem / 1.5 $font-family-base;
+    }
+  }
+}

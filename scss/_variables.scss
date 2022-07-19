@@ -1,0 +1,39 @@
+:root {
+  --brand-primary-color: #004f5f;
+  --brand-primary-color-02: #33727e;
+  --brand-primary-color-03: #46707b;
+  --brand-secondary-color: #ff4e00;
+  --brand-third-color: #ccdbdf;
+  --brand-third-color-02: #e5edef;
+  --color-dark: #000000;
+  --color-white: #ffffff;
+  --color-yellow: #f5d05a;
+  --body--font-color: var(--color-dark);
+  --box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+// COLORS
+$brand-primary-color: var(--brand-primary-color);
+$brand-primary-color-02: var(--brand-primary-color-02);
+$brand-primary-color-03: var(--brand-primary-color-03);
+$brand-secondary-color: var(--brand-secondary-color);
+$brand-third-color: var(--brand-third-color);
+$brand-third-color-02: var(--brand-third-color-02);
+$color-dark: var(--color-dark);
+$color-white: var(--color-white);
+$color-yellow: var(--color-yellow);
+$body--font-color: var(--body--font-color);
+$box-shadow: var(--box-shadow);
+
+// FONTS
+$font-name-base: 'NotoSans';
+$font-family-base: $font-name-base, Arial, sans-serif;
+
+// FONT WEIGHTS
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// FONT SIZES
+$html-font-size: 62.5%; // 1rem = 10px
+$body-font-size: 1.6rem; // 16px

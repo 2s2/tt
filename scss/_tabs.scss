@@ -1,0 +1,228 @@
+.tabs {
+  background: $brand-third-color-02;
+  padding: 3.2rem 0;
+
+  &__container {
+    @include container();
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 35rem;
+    margin: 0 auto;
+  }
+
+  &__content-tab-media {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    height: 100%;
+    min-height: 36.6rem;
+  }
+
+  &__content-tab-image {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content-input {
+    display: none;
+  }
+
+  &__content-input:checked + .tabs__content-label {
+    font-weight: 700;
+
+    &::after {
+      height: 100%;
+    }
+  }
+
+  &__content-input:checked + .tabs__content-label + .tabs__content-tab {
+    display: block;
+  }
+
+  &__content-label {
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    height: 5rem;
+    display: flex;
+    background-color: $color-white;
+    align-items: center;
+    color: $brand-primary-color;
+    font: 400 1.8rem / 1 $font-family-base;
+    padding: 0 0 0 6rem;
+    margin: 0 0 0.4rem;
+
+    &::after {
+      content: '';
+      width: 0.4rem;
+      right: 0;
+      top: 0;
+      position: absolute;
+      background: $brand-secondary-color;
+      transition: all 0.4s ease;
+    }
+
+    &::before {
+      content: '';
+      width: 5rem;
+      height: 5rem;
+      left: 0;
+      position: absolute;
+      top: 0;
+      background-repeat:  no-repeat;
+      background-color: $brand-third-color;
+      background-size: 3.6rem;
+      background-position: 0.7rem 0.7rem;
+    }
+
+    &--child-1 {
+      &::before {
+        background-image: url("../images/icon_agility_2c.png");
+      }
+    }
+
+    &--child-2 {
+      &::before {
+        background-image: url("../images/icon_award_ribbon_star_2c.png");
+      }
+    }
+
+    &--child-3 {
+      &::before {
+        background-image: url("../images/icon_compliance_2c.png");
+      }
+    }
+
+    &--child-4 {
+      &::before {
+        background-image: url("../images/icon_fingerprint_check_2c.png");
+      }
+    }
+
+    &--child-5 {
+      &::before {
+        background-image: url("../images/icon_gauge_meter_2c.png");
+      }
+    }
+
+    &--child-6 {
+      &::before {
+        background-image: url("../images/icon_supplier_2_2c.png");
+      }
+    }
+
+    &--child-7 {
+      &::before {
+        background-image: url("../images/icon_graph_2c.png");
+      }
+    }
+  }
+
+  &__content-tab {
+    width: 100%;
+    display: none;
+  }
+
+  @include respond(tablet) {
+    &__content {
+      width: auto;
+      margin: 0;
+      display: grid;
+      grid-gap: 0.4rem;
+      grid-auto-rows: auto;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    &__content-tab {
+      grid-column-start: 5;
+      grid-column-end: 8;
+      grid-row-start: 1;
+      grid-row-end: 8;
+    }
+
+    &__content-label {
+      grid-column-start: 1;
+      grid-column-end: 5;
+      margin: 0;
+
+      &--child-1 {
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
+
+      &--child-2 {
+        grid-row-start: 2;
+        grid-row-end: 3;
+      }
+
+      &--child-3 {
+        grid-row-start: 3;
+        grid-row-end: 4;
+      }
+
+      &--child-4 {
+        grid-row-start: 4;
+        grid-row-end: 5;
+      }
+
+      &--child-5 {
+        grid-row-start: 5;
+        grid-row-end: 6;
+      }
+
+      &--child-6 {
+        grid-row-start: 6;
+        grid-row-end: 7;
+      }
+
+      &--child-7 {
+        grid-row-start: 7;
+        grid-row-end: 8;
+      }
+    }
+  }
+
+  @include respond(desktop) {
+    &__content {
+      grid-column-gap: 0.8rem;
+    }
+
+    .tabs__content-label:hover + .tabs__content-tab {
+      display: block;
+      z-index: 22;
+    }
+
+    &__content-label {
+      height: 8.4rem;
+      padding: 0 0 0 11rem;
+      font-size: 2.2rem;
+
+      &::before {
+        width: 8.4rem;
+        height: 8.4rem;
+        background-position: 1.2rem 1.2rem;
+        background-size: 6rem;
+      }
+
+      &:hover {
+        font-weight: 700;
+
+        &::after {
+          height: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+// NOTO SANS
+@font-face {
+    font-family: $font-name-base;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/NotoSans-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: $font-name-base;
+  font-style: normal;
+  font-weight: bold;
+  src: url('../fonts/NotoSans-Bold.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: $font-name-base;
+  font-style: normal;
+  font-weight: $font-weight-light;
+  src: url('../fonts/NotoSans-Light.ttf') format('ttf');
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: $html-font-size;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: $font-family-base;
+  font-size: $body-font-size;
+  line-height: 1.5;
+  color: $body--font-color;
+  margin: 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+img {
+  flex-shrink: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  color: $body--font-color;
+  text-decoration: none;
+  transition: 0.3s;
+
+  &:hover,
+  &:active {
+    color: inherit;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+

@@ -1,0 +1,47 @@
+.promo {
+  background: $brand-third-color;
+  padding: 2.4rem 0;
+
+  &__container {
+    @include container();
+  }
+
+  &__title {
+    @include h2-title();
+  }
+
+  &__description {
+    @include ellipsis-multi(5);
+    font: 400 1.8rem / 1.5 $font-family-base;
+  }
+
+  &__button {
+    @include button();
+  }
+
+  &__wrapper {
+    padding: 3.2rem 2.4rem;
+  }
+
+  @include respond(desktop) {
+    padding: 8rem 0;
+
+    &__container {
+      display: flex;
+    }
+
+    &__media {
+      width: 50%;
+    }
+
+    &__wrapper {
+      width: 50%;
+      display: flex;
+      align-items: center;
+    }
+
+    &__content {
+      padding: 6.4rem 4rem 6.4rem 12rem;
+    }
+  }
+}

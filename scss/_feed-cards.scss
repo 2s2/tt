@@ -1,0 +1,269 @@
+.feed-cards {
+  &__container {
+    @include container();
+    padding: 4rem 2.4rem;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-gap: 1.6rem;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  &__header {
+    max-width: 106rem;
+    margin: 0 auto 3.2rem;
+    text-align: center;
+  }
+
+  &__card-info {
+    display: block;
+    padding: 0 0 0.8rem;
+    font: 700 1.8rem / 1 $font-family-base;
+    color: $brand-secondary-color;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    @include h2-title();
+    margin: 0 0 1.2rem;
+    text-transform: capitalize;
+  }
+
+  &__description {
+    @include p-description();
+  }
+
+  &__card {
+    grid-column: auto/span 6;
+  }
+
+  &__card-container {
+    padding: 2.4rem;
+  }
+
+  &__card-media {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 56.25% 0 0;
+  }
+
+  &__card-media-image {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__card-header {
+    position: relative;
+    margin: 0 0 2.4rem;
+    padding: 0 0 1.6rem;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      background: $brand-primary-color;
+      height: 0.4rem;
+    }
+
+    &::before {
+      left: 0;
+      width: 18rem;
+    }
+
+    &::after {
+      left: 18.4rem;
+      width: 0.4rem;
+    }
+
+    &--image {
+      padding: 0 0 1.6rem 8rem;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      &::before {
+        left: 8rem;
+      }
+
+      &::after {
+        left: 26.4rem;
+      }
+    }
+
+    &--support {
+      background-image: url("../images/icon_agility_2c.png");
+    }
+
+    &--expertise {
+      background-image: url("../images/icon_award_ribbon_star_2c.png");
+    }
+
+    &--community {
+      background-image: url("../images/icon_graph_2c.png");
+    }
+  }
+
+  &__card-title-span {
+    display: block;
+    font-weight: 400;
+  }
+
+  &__card-description {
+    @include ellipsis-multi(5);
+    margin: 0 0 1.6rem;
+  }
+
+  &__footer {
+    padding: 2.4rem 0 0;
+    text-align: center;
+  }
+
+  &__link-more {
+    @include button();
+  }
+
+  &--default {
+    .feed-cards {
+      &__card {
+        background: $color-white;
+      }
+
+      &__card-container {
+        padding: 2.4rem 0;
+      }
+
+      &__card-header {
+        padding: 0;
+
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+
+      &__card-link {
+        @include button();
+
+        &::before {
+          left: auto;
+          transform: none;
+          top: auto;
+        }
+
+        &:hover {
+          &::before {
+            background: $color-white;
+          }
+        }
+      }
+
+      &__card-title {
+        @include ellipsis-multi(3);
+        @include h3-title($brand-primary-color, none);
+        position: relative;
+
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &--masonry {
+    .feed-cards {
+      &__card {
+        background: $brand-third-color;
+      }
+
+      &__card-title {
+        @include ellipsis-multi(2);
+        @include h3-title($brand-primary-color, uppercase);
+        margin: 0;
+      }
+
+      &__card-link {
+        position: relative;;
+        padding: 0 0 0 1.6rem;
+        font: 700 1.6rem / 1.2 $font-family-base;
+        color: $brand-secondary-color;
+        text-transform: uppercase;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 0.8rem;
+          height: 0.8rem;
+          background: $brand-secondary-color;
+          transition: 0.3s;
+        }
+
+        &:hover {
+          color: $brand-secondary-color;
+        }
+      }
+    }
+  }
+
+  @include respond(tablet) {
+    &__container {
+      padding: 6.4rem 0;
+    }
+
+    &__card {
+      grid-column: auto/span 3;
+    }
+
+    &__card-title {
+      font: 700 2.4rem / 1.2 $font-family-base;
+    }
+  }
+
+  @include respond(desktop) {
+    &__container {
+      padding: 8.8rem 0;
+    }
+
+    &__header {
+      margin: 0 auto 4rem;
+    }
+
+    &__card {
+      grid-column: auto/span 2;
+    }
+
+    &--masonry {
+      .feed-cards {
+        &__card-link {
+          display: inline-block;
+
+          &:hover {
+            color: $brand-primary-color;
+            transform: scale(1.1);
+
+            &::before {
+              background: $brand-primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

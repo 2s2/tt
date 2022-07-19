@@ -1,7 +1,7 @@
-const navigation = document.querySelector('.js-navigation');
+const navigation = document.querySelector('.js-header');
 const menu = document.querySelector('.js-navigation-menu');
 const burgerBtn = document.querySelector('.js-burger-button');
-const input = document.querySelector('.navigation__info-search-input');
+const input = document.querySelector('.header-search__input');
 const footerBlocks = document.querySelectorAll('.footer__information-block');
 
 input.addEventListener('focus', () => {
@@ -34,7 +34,7 @@ const poland = document.getElementById('pl');
 
 (function () {
     currentLang.innerHTML = 'EN';
-    english.classList.add('switcher__item-lang--current');
+    english.classList.add('lang-switcher__item-lang--current');
 })();
 
 currentLang.addEventListener('click', () => {

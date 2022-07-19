@@ -1,0 +1,73 @@
+﻿.header-search {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      &__input {
+      width: 3.6rem;
+      height: 3.6rem;
+      padding: 0.8rem 0.8rem 0.8rem 3.2rem;
+      border-radius: 0.5rem;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+  
+      &:focus {
+        width: 20rem;
+        border: 0.2rem solid $brand-third-color;
+        cursor: auto;
+  
+        & ~ .header-search__button {
+          z-index: 1;
+        }
+  
+        & ~ .header-search__button-close {
+          display: block;
+        }
+      }
+    }
+  
+    &__button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      position: absolute;
+      left: 0.8rem;
+      z-index: -1;
+    }
+  
+    &__button-close {
+      display: none;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 0;
+      position: relative;
+      width: 2.4rem;
+      height: 2.2rem;
+      margin: 0 0 0 0.8rem;
+  
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 2.2rem;
+        height: 0.2rem;
+        left: 0;
+        background: $brand-primary-color-02;
+        transition: all 0.3s ease;
+      }
+  
+      &::before {
+        top: 0;
+        transform: rotate(-45deg) translate(-0.7rem, 0.7rem);
+      }
+  
+      &::after {
+        bottom: 0;
+        transform: rotate(45deg) translate(-0.7rem, -0.7rem);
+      }
+    }
+
+}

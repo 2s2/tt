@@ -93,6 +93,14 @@
           top: 50%;
           transform: translateY(-50%);
         }
+
+        &:hover {
+          padding: 0 0 0 0.8rem;
+  
+          &::before {
+            display: block;
+          }
+        }
       }
     }
 }

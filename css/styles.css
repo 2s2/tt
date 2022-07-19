@@ -676,6 +676,12 @@ p {
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
   }
+  .footer-nav__list-link:hover {
+    padding: 0 0 0 0.8rem;
+  }
+  .footer-nav__list-link:hover::before {
+    display: block;
+  }
 }
 
 .slider {

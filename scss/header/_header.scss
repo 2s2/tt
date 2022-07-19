@@ -219,10 +219,6 @@
     }
   }
 
-  &__lang-switcher {
-    position: relative;
-  }
-
   &__lang-switcher-button {
     margin: 0 0 0 0.4rem;
     padding: 0.8rem 0.4rem;
@@ -360,6 +356,10 @@
 
     &__menu-burger-button {
       display: none;
+    }
+
+    &__lang-switcher {
+      position: relative;
     }
 
     &__info {

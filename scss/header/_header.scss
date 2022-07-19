@@ -219,54 +219,6 @@
     }
   }
 
-  &__lang-switcher-button {
-    margin: 0 0 0 0.4rem;
-    padding: 0.8rem 0.4rem;
-    width: 3rem;
-    border: none;
-    background: transparent;
-    color: $brand-third-color;
-    font: 400 1.8rem / 1 $font-family-base;
-    cursor: pointer;
-    text-align: center;
-  }
-
-  &__lang-switcher-list {
-    min-width: 13rem;
-    background: $color-white;
-    text-align: center;
-    box-shadow: $box-shadow;
-    padding: 0.8rem 1.6rem;
-    cursor: pointer;
-    position: absolute;
-    right: -100vw;
-    top: 6.8rem;
-    z-index: 2;
-    transition: all 0.4s ease;
-
-    &--open {
-      right: 0;
-    }
-  }
-
-  &__lang-switcher-item + &__lang-switcher-item {
-    border-top: 0.1rem solid $brand-third-color;
-  }
-
-  &__lang-switcher-item-lang {
-    display: block;
-    padding: 1.2rem 0;
-    cursor: pointer;
-    font: 400 1.6rem / 1 $font-family-base;
-    color: $brand-primary-color;
-    transition: 0.4s;
-
-    &--current,
-    &:hover {
-      color: $brand-secondary-color;
-    }
-  }
-
   @include respond(tablet) {
     &__info-link {
       display: none;
@@ -285,10 +237,6 @@
           display: block;
         }
       }
-    }
-
-    &__lang-switcher-list {
-      transition: none;
     }
   }
 
@@ -356,10 +304,6 @@
 
     &__menu-burger-button {
       display: none;
-    }
-
-    &__lang-switcher {
-      position: relative;
     }
 
     &__info {

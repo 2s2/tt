@@ -12,6 +12,24 @@
   --box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
 }
 
+@font-face {
+  font-family: "NotoSans";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/NotoSans-Regular.ttf") format("ttf");
+}
+@font-face {
+  font-family: "NotoSans";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/NotoSans-Bold.ttf") format("ttf");
+}
+@font-face {
+  font-family: "NotoSans";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/NotoSans-Light.ttf") format("ttf");
+}
 *,
 *::before,
 *::after {
@@ -280,12 +298,12 @@ p {
           transform: rotate(45deg) translate(-0.7rem, -0.7rem);
 }
 
-.navigation__menu {
+.navigation {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
 }
-.navigation__menu-list {
+.navigation__list {
   width: 100%;
   background: var(--color-white);
   position: absolute;
@@ -296,19 +314,19 @@ p {
   transition: all 0.4s ease;
   z-index: 2;
 }
-.navigation__menu-list.is-burger {
+.navigation__list.is-burger {
   right: 0;
 }
-.navigation__menu-list.is-burger .navigation__menu-link {
+.navigation__list.is-burger .navigation__link {
   opacity: 1;
 }
-.navigation__menu-item {
+.navigation__item {
   margin: 0 2.4rem;
 }
-.navigation__menu-item + .navigation__menu-item {
+.navigation__item + .navigation__item {
   border-top: 0.1rem solid var(--brand-third-color);
 }
-.navigation__menu-link {
+.navigation__link {
   display: block;
   padding: 1.6rem 4rem 1.6rem 0;
   font: 700 1.8rem/1.2 "NotoSans", Arial, sans-serif;
@@ -319,7 +337,7 @@ p {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
-.navigation__menu-link::after {
+.navigation__link::after {
   position: absolute;
   right: 0;
   top: 50%;
@@ -330,10 +348,10 @@ p {
   width: 2.4rem;
   height: 2.4rem;
 }
-.navigation__menu-link:hover {
+.navigation__link:hover {
   color: var(--brand-primary-color);
 }
-.navigation__menu-burger-button {
+.navigation__burger-button {
   cursor: pointer;
   position: relative;
   background: none;
@@ -343,7 +361,7 @@ p {
   width: 3.2rem;
   height: 2.2rem;
 }
-.navigation__menu-burger-button::before, .navigation__menu-burger-button::after {
+.navigation__burger-button::before, .navigation__burger-button::after {
   content: "";
   position: absolute;
   width: 3.2rem;
@@ -353,24 +371,24 @@ p {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-.navigation__menu-burger-button::before {
+.navigation__burger-button::before {
   top: 0;
 }
-.navigation__menu-burger-button::after {
+.navigation__burger-button::after {
   bottom: 0;
 }
-.navigation__menu-burger-button.is-burger .navigation__menu-burger-span {
+.navigation__burger-button.is-burger .navigation__burger-span {
   opacity: 0;
 }
-.navigation__menu-burger-button.is-burger::before {
+.navigation__burger-button.is-burger::before {
   -webkit-transform: rotate(-45deg) translate(-0.7rem, 0.7rem);
           transform: rotate(-45deg) translate(-0.7rem, 0.7rem);
 }
-.navigation__menu-burger-button.is-burger::after {
+.navigation__burger-button.is-burger::after {
   -webkit-transform: rotate(45deg) translate(-0.7rem, -0.7rem);
           transform: rotate(45deg) translate(-0.7rem, -0.7rem);
 }
-.navigation__menu-burger-span {
+.navigation__burger-span {
   width: 3.2rem;
   height: 0.2rem;
   position: absolute;
@@ -383,12 +401,12 @@ p {
   transition: all 0.2s ease;
 }
 @media screen and (min-width: 1260px) {
-  .navigation__menu {
+  .navigation {
     -webkit-box-ordinal-group: 1;
         -ms-flex-order: 0;
             order: 0;
   }
-  .navigation__menu-list {
+  .navigation__list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -397,21 +415,21 @@ p {
     height: auto;
     width: auto;
   }
-  .navigation__menu-item {
+  .navigation__item {
     margin: 0 1.6rem;
   }
-  .navigation__menu-item + .navigation__menu-item {
+  .navigation__item + .navigation__item {
     border-top: none;
   }
-  .navigation__menu-link {
+  .navigation__link {
     font: 700 1.2rem/1.2 "NotoSans", Arial, sans-serif;
     padding: 0;
     opacity: 1;
   }
-  .navigation__menu-link::after {
+  .navigation__link::after {
     display: none;
   }
-  .navigation__menu-link::before {
+  .navigation__link::before {
     content: "";
     position: absolute;
     left: 0;
@@ -421,13 +439,13 @@ p {
     -webkit-transition: 0.3s;
     transition: 0.3s;
   }
-  .navigation__menu-link:hover, .navigation__menu-link--active {
+  .navigation__link:hover, .navigation__link--active {
     color: var(--brand-secondary-color);
   }
-  .navigation__menu-link:hover::before, .navigation__menu-link--active::before {
+  .navigation__link:hover::before, .navigation__link--active::before {
     right: 0;
   }
-  .navigation__menu-burger-button {
+  .navigation__burger-button {
     display: none;
   }
 }

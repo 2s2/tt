@@ -1,0 +1,98 @@
+﻿.footer-nav {
+    padding: 2.4rem 0;
+
+    &.is-open-block {
+      .footer-nav {
+        &__list {
+            display: block;
+        }
+
+        &__title {
+          &::before {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+
+    &__list {
+      display: none;
+    }
+  
+    & + & {
+      border-top: 0.1rem solid $brand-third-color-02;
+    }
+  
+    &__title {
+      margin: 0 0 0.8rem;
+      font-size: 1.8rem;
+      text-transform: capitalize;
+    }
+  
+    &__list-item + &__list-item {
+      margin: 0.8rem 0 0;
+    }
+  
+    &__title {
+      position: relative;
+      cursor: pointer;
+  
+      &::before {
+        content: '';
+        background: url("../images/icons-arrow-down.svg") no-repeat;
+        width: 2.4rem;
+        height: 2.4rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: all 0.3s ease;
+      }
+    }
+  
+    &__list-link {
+      color: $color-white;
+      font-size: 1.4rem;
+      text-transform: capitalize;
+    }
+
+    @include respond(tablet) {
+      width: 50%;
+      text-align: center;
+  
+      & + & {
+        border-top: none;
+      }
+  
+      &__list {
+        display: block;
+      }
+  
+      &__title {
+        cursor: auto;
+  
+        &::before {
+          display: none;
+        }
+      }
+    }
+  
+    @include respond(desktop) {
+      width: 25%;
+      padding: 3.2rem 0;
+      text-align: left;
+      flex-wrap: nowrap;
+  
+      &__list-link {
+        position: relative;
+  
+        &::before {
+          content: '-';
+          display: none;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+}

@@ -2,7 +2,7 @@ const navigation = document.querySelector('.js-header');
 const menu = document.querySelector('.js-navigation-menu');
 const burgerBtn = document.querySelector('.js-burger-button');
 const input = document.querySelector('.js-header-search');
-const footerBlocks = document.querySelectorAll('.js-footer-information');
+const footerBlocks = document.querySelectorAll('.js-footer-nav');
 
 input.addEventListener('focus', () => {
     navigation.classList.add('is-searching');
@@ -18,7 +18,7 @@ burgerBtn.addEventListener('click', () => {
 });
 
 footerBlocks.forEach(item => {
-    const title = item.querySelector('.footer__information-block-title');
+    const title = item.querySelector('.footer-nav__title');
 
     title.addEventListener('click', () => item.classList.toggle('is-open-block'));
 });
